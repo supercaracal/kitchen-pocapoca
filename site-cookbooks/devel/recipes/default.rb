@@ -7,11 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "git" do
+package "ncurses-term" do
   action :install
 end
 
-package "ncurses-term" do
+package "exuberant-ctags" do
   action :install
 end
 
@@ -20,11 +20,18 @@ package "language-pack-ja" do
 end
 
 bash "update-locale" do
-  code 'sudo update-locale LANG=ja_JP.UTF-8'
+  code 'update-locale LANG=ja_JP.UTF-8'
+  user "root"
 end
 
 link "/etc/localtime" do
   to "/usr/share/zoneinfo/Japan"
+  owner "root"
+  group "root"
+end
+
+package "git" do
+  action :install
 end
 
 package "tmux" do
@@ -33,6 +40,20 @@ end
 
 package "curl" do
   action :install
+end
+
+directory node['vim_dir'] do
+  owner "vagrant"
+  group "vagrant"
+  mode "0700"
+  action :create
+end
+
+directory node['vim_bundle_dir'] do
+  owner "vagrant"
+  group "vagrant"
+  mode "0700"
+  action :create
 end
 
 template "/home/vagrant/.inputrc" do
@@ -52,3 +73,21 @@ template "/home/vagrant/.tmux.conf" do
   owner "vagrant"
   group "vagrant"
 end
+
+template "/home/vagrant/.tags" do
+  source ".tags.erb"
+  owner "vagrant"
+  group "vagrant"
+end
+
+git "#{node['vim_bundle_dir']}/neobundle.vim" do
+  repository "https://github.com/Shougo/neobundle.vim.git"
+  revision "master"
+  action :sync
+  user "vagrant"
+end
+
+#bash "NeoBundleInstall" do
+#  code 'vim +":NeoBundleInstall" +:q'
+#  user "vagrant"
+#end
