@@ -87,7 +87,8 @@ git "#{node['vim_bundle_dir']}/neobundle.vim" do
   user "vagrant"
 end
 
-#bash "NeoBundleInstall" do
-#  code 'vim +":NeoBundleInstall" +:q'
-#  user "vagrant"
-#end
+bash "NeoBundleInstall" do
+  # code 'vim +NeoBundleInstall +qall' # MinTTY hangs
+  code "#{node['vim_neobundle_dir']}/bin/neoinstall"
+  user "vagrant"
+end
