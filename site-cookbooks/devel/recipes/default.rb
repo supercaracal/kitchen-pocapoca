@@ -80,6 +80,18 @@ template "/home/vagrant/.tags" do
   group "vagrant"
 end
 
+template "/var/run/motd_pocapoca" do
+  source "motd_pocapoca.erb"
+  owner "root"
+  group "root"
+end
+
+link "/etc/motd" do
+  to "/var/run/motd_pocapoca"
+  owner "root"
+  group "root"
+end
+
 git "#{node['vim_bundle_dir']}/neobundle.vim" do
   repository "https://github.com/Shougo/neobundle.vim.git"
   revision "master"
