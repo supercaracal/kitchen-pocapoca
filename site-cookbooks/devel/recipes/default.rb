@@ -42,6 +42,10 @@ package "curl" do
   action :install
 end
 
+package "clisp" do
+  action :install
+end
+
 directory node['vim_dir'] do
   owner "vagrant"
   group "vagrant"
