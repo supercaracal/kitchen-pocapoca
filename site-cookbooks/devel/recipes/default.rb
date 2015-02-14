@@ -7,16 +7,27 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "ncurses-term" do
-  action :install
+%w(ncurses-term exuberant-ctags language-pack-ja git tmux curl clisp).each do |pkg|
+  package pkg do
+    action :install
+  end
 end
 
-package "exuberant-ctags" do
-  action :install
+%W(#{node['vim_dir']} #{node['vim_bundle_dir']}).each do |dir|
+  directory dir do
+    owner "vagrant"
+    group "vagrant"
+    mode "0700"
+    action :create
+  end
 end
 
-package "language-pack-ja" do
-  action :install
+%w(.inputrc .vimrc .tmux.conf .tags).each do |tpl|
+  template "/home/vagrant/#{tpl}" do
+    source "#{tpl}.erb"
+    owner "vagrant"
+    group "vagrant"
+  end
 end
 
 bash "update-locale" do
@@ -30,72 +41,6 @@ link "/etc/localtime" do
   group "root"
 end
 
-package "git" do
-  action :install
-end
-
-package "tmux" do
-  action :install
-end
-
-package "curl" do
-  action :install
-end
-
-package "clisp" do
-  action :install
-end
-
-directory node['vim_dir'] do
-  owner "vagrant"
-  group "vagrant"
-  mode "0700"
-  action :create
-end
-
-directory node['vim_bundle_dir'] do
-  owner "vagrant"
-  group "vagrant"
-  mode "0700"
-  action :create
-end
-
-template "/home/vagrant/.inputrc" do
-  source ".inputrc.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-template "/home/vagrant/.vimrc" do
-  source ".vimrc.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-template "/home/vagrant/.tmux.conf" do
-  source ".tmux.conf.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-template "/home/vagrant/.tags" do
-  source ".tags.erb"
-  owner "vagrant"
-  group "vagrant"
-end
-
-template "/var/run/motd_pocapoca" do
-  source "motd_pocapoca.erb"
-  owner "root"
-  group "root"
-end
-
-link "/etc/motd" do
-  to "/var/run/motd_pocapoca"
-  owner "root"
-  group "root"
-end
-
 git "#{node['vim_bundle_dir']}/neobundle.vim" do
   repository "https://github.com/Shougo/neobundle.vim.git"
   revision "master"
@@ -105,6 +50,6 @@ end
 
 bash "NeoBundleInstall" do
   # code 'vim +NeoBundleInstall +qall' # MinTTY hangs
-  code "#{node['vim_neobundle_dir']}/bin/neoinstall"
+  code "#{node['vim_neobundle_dir']}/bin/neoinstall" # Hmm... not working.
   user "vagrant"
 end
