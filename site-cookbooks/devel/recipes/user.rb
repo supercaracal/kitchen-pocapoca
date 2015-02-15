@@ -33,12 +33,37 @@ data_bag('users').each do |user_id|
     end
   end
 
-  %W(#{home_dir}/.vim #{home_dir}/.vim/bundle).each do |dir|
-    directory dir do
+  %W(.vim .vim/bundle bin).each do |dir|
+    directory "#{home_dir}/#{dir}" do
       owner user_id
       group user_id
       mode '0700'
       action :create
+    end
+  end
+
+  %w(.inputrc .vimrc .tmux.conf .gitconfig).each do |tpl|
+    template "#{home_dir}/#{tpl}" do
+      source "#{tpl}.erb"
+      owner user_id
+      group user_id
+    end
+  end
+
+  %w(gitvimdiff).each do |tpl|
+    template "#{home_dir}/bin/#{tpl}" do
+      source "bin/#{tpl}.erb"
+      owner user_id
+      group user_id
+      mode '0544'
+    end
+  end
+
+  %w(.tags).each do |tpl|
+    file "#{home_dir}/#{tpl}" do
+      content ''
+      owner user_id
+      group user_id
     end
   end
 
@@ -47,14 +72,6 @@ data_bag('users').each do |user_id|
     revision 'master'
     action :sync
     user user_id
-  end
-
-  %w(.inputrc .vimrc .tmux.conf .tags).each do |tpl|
-    template "#{home_dir}/#{tpl}" do
-      source "#{tpl}.erb"
-      owner user_id
-      group user_id
-    end
   end
 
   bash "NeoBundleInstall" do
