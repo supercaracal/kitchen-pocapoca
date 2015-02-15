@@ -94,7 +94,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "build-essential"
     chef.add_recipe "vim"
     chef.add_recipe "devel"
-    # chef.add_role "web"
 
     # You may also specify custom JSON attributes:
     # chef.json = { mysql_password: "foo" }
