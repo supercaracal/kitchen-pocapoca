@@ -1,0 +1,8 @@
+#!/bin/bash
+
+tmpfile='_tags'
+
+ctags -Rf $HOME/$tmpfile <%= node['ctags']['directories'].join(' ') %>
+
+rm $HOME/<%= node['ctags']['file'] %>
+mv $HOME/$tmpfile $HOME/<%= node['ctags']['file'] %>

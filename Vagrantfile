@@ -86,13 +86,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # some recipes and/or roles.
   #
   config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
+    chef.cookbooks_path = ["./berks-cookbooks", "./site-cookbooks"]
     chef.roles_path = "./roles"
     chef.data_bags_path = "./data_bags"
     chef.custom_config_path = "Vagrantfile.chef"
     chef.add_recipe "apt"
     chef.add_recipe "build-essential"
     chef.add_recipe "vim"
+    chef.add_recipe "cron"
     chef.add_recipe "devel"
 
     # You may also specify custom JSON attributes:

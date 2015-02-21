@@ -23,9 +23,24 @@ define :neobundle, user: 'root', home: '/tmp' do
     # code "#{home_dir}/.vim/bundle/neobundle.vim/bin/neoinstall" # Hmm... not working.
   end
 
-  file "#{params[:home]}/.tags" do
+  file "#{params[:home]}/#{node['ctags']['file']}" do
     owner params[:user]
     group params[:user]
     action :touch
+  end
+
+  directory "#{params[:home]}/#{node['user']['workplace']}" do
+    owner params[:user]
+    group params[:user]
+    mode '0755'
+    action :create
+  end
+
+  # cron cookbook dependency
+  cron_d 'create_ctags' do
+    user params[:user]
+    home params[:home]
+    minute '*/5'
+    command "#{params[:home]}/bin/create_ctags"
   end
 end

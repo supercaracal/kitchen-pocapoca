@@ -1,6 +1,6 @@
 [user]
-  name = supercaracal
-  email = supercaracal@yahoo.co.jp
+  name = <%= node['git']['user']['name'] %>
+  email = <%= node['git']['user']['email'] %>
 [alias]
   logg = log --oneline --format=format:'%cn\t[%h]\t%ar\t%s'
 [color]

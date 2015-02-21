@@ -14,7 +14,7 @@ data_bag('users').each do |user_id|
     password user_attrs['password']
     supports manage_home: true
     home home_dir
-    shell user_attrs['shell'] || '/bin/bash'
+    shell user_attrs['shell'] || node['user']['shell']
   end
 
   local_ssh do
@@ -26,7 +26,7 @@ data_bag('users').each do |user_id|
   local_command do
     user user_id
     home home_dir
-    commands %w(gitvimdiff)
+    commands node['user']['commands']
   end
 
   neobundle do
@@ -42,12 +42,12 @@ data_bag('users').each do |user_id|
   source do
     user user_id
     home home_dir
-    files %w(.bash_rbenv)
+    files node['user']['bashrc']['sources']
   end
 
   dotfile do
     user user_id
     home home_dir
-    files %w(.inputrc .vimrc .tmux.conf .gitconfig)
+    files node['user']['dotfiles']
   end
 end
