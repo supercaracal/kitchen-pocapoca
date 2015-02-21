@@ -10,7 +10,7 @@ define :rbenv, user: 'root', home: '/tmp' do
   directory "#{params[:home]}/.rbenv/plugins" do
     owner params[:user]
     group params[:user]
-    mode '0700'
+    mode '0755'
     action :create
   end
 
