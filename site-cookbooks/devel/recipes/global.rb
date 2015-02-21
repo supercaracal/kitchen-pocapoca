@@ -22,3 +22,7 @@ link "/etc/localtime" do
   group 'root'
   to "/usr/share/zoneinfo/#{node['global']['locale']}"
 end
+
+motd do
+  files node['global']['motd']['files']
+end

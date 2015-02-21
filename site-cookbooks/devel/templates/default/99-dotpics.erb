@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MOTD_FILES_DIR='<%= node['global']['motd']['dir'] %>'
+
+count=$(ls $MOTD_FILES_DIR | wc -l)
+i=$(expr $RANDOM % $count)
+files=($(ls $MOTD_FILES_DIR))
+
+echo
+eval cat '${'MOTD_FILES_DIR'}'/'${'files'['$i']}'
