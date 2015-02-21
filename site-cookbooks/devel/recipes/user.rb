@@ -29,22 +29,25 @@ data_bag('users').each do |user_id|
     commands %w(gitvimdiff)
   end
 
-  dotfile do
-    user user_id
-    home home_dir
-    files %w(.inputrc .vimrc .tmux.conf .gitconfig)
-  end
-
   neobundle do
     user user_id
     home home_dir
   end
 
-  %w(.tags).each do |tpl|
-    file "#{home_dir}/#{tpl}" do
-      owner user_id
-      group user_id
-      action :touch
-    end
+  rbenv do
+    user user_id
+    home home_dir
+  end
+
+  source do
+    user user_id
+    home home_dir
+    files %w(.bash_rbenv)
+  end
+
+  dotfile do
+    user user_id
+    home home_dir
+    files %w(.inputrc .vimrc .tmux.conf .gitconfig)
   end
 end
