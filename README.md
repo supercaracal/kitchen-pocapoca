@@ -26,6 +26,17 @@ My development environment VM configurations. With bootstraping tool and configu
     drwx------  2 pocapoca pocapoca 4096  2月 22 01:05 bin/
     drwxr-xr-x  2 pocapoca pocapoca 4096  2月 22 01:06 vcs/
 
+## features
+* ssh user 'pocapoca'
+* rundom motd w/dot pictures
+* locally installation
+* ruby w/pry,bundle,rubocop
+* vim w/neobundle,powerline
+* ctags creation w/cron
+* git w/vimdiff
+* tmux
+* clisp REPL
+
 ## TODO
-* tmux powerline
-* node, npm w/ndenv
+* tmux w/powerline
+* node w/ndenv
