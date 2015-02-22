@@ -28,7 +28,7 @@ My development environment VM configurations. With bootstraping tool and configu
 
 ## features
 * ssh user 'pocapoca'
-* rundom motd w/dot pictures
+* random motd w/dot pictures
 * locally installation
 * ruby w/pry,bundle,rubocop
 * vim w/neobundle,powerline
