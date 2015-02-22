@@ -53,7 +53,7 @@ define :rbenv, user: 'root', home: '/tmp' do
     command "#{params[:home]}/.rbenv/bin/rbenv global #{node['rbenv']['version']}"
   end
 
-  execute "rbenv rehash" do
+  execute "rbenv rehash '1st'" do
     user params[:user]
     group params[:user]
     cwd params[:home]
@@ -72,7 +72,7 @@ define :rbenv, user: 'root', home: '/tmp' do
     end
   end
 
-  execute "rbenv rehash" do
+  execute "rbenv rehash '2nd'" do
     user params[:user]
     group params[:user]
     cwd params[:home]
