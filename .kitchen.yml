@@ -12,7 +12,5 @@ platforms:
 suites:
   - name: default
     run_list:
-
-      - recipe[hogehoge::default]
-
+      - recipe[kitchen-pocapoca::default]
     attributes:

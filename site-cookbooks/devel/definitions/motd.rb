@@ -21,6 +21,6 @@ define :motd, files: [] do
     owner 'root'
     group 'root'
     mode '0755'
-    only_if { File.directory?("/etc/update-motd.d") }
+    only_if { File.directory?('/etc/update-motd.d') }
   end
 end

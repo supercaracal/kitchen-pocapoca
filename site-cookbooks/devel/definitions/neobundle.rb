@@ -16,7 +16,7 @@ define :neobundle, user: 'root', home: '/tmp' do
     action :sync
   end
 
-  bash "NeoBundleInstall" do
+  bash 'NeoBundleInstall' do
     user params[:user]
     group params[:user]
     # code 'vim +NeoBundleInstall +qall' # MinTTY hangs

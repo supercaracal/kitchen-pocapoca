@@ -12,12 +12,12 @@ node['apt']['packages'].each do |pkg|
   end
 end
 
-bash "update-locale" do
+bash 'update-locale' do
   user 'root'
   code "update-locale #{node['global']['lang']}"
 end
 
-link "/etc/localtime" do
+link '/etc/localtime' do
   owner 'root'
   group 'root'
   to "/usr/share/zoneinfo/#{node['global']['locale']}"

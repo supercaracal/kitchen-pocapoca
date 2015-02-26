@@ -1,10 +1,7 @@
-source "https://supermarket.getchef.com"
+source 'https://supermarket.chef.io'
 
-
-
-metadata
-
-cookbook "apt"
-cookbook "build-essential"
-cookbook "vim"
-cookbook "cron"
+cookbook 'apt'
+cookbook 'build-essential'
+cookbook 'vim'
+cookbook 'cron'
+cookbook 'devel', path: './site-cookbooks/devel'
