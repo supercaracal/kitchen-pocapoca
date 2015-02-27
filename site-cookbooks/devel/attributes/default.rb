@@ -1,4 +1,7 @@
 default['apt']['packages'] = %w(
+  libffi-dev
+  zlib1g-dev
+  libssl-dev
   ncurses-term
   exuberant-ctags
   language-pack-ja
@@ -23,7 +26,7 @@ default['global']['motd']['files'] = %w(
 
 default['user']['shell'] = '/bin/bash'
 default['user']['commands'] = %w(gitvimdiff create_ctags)
-default['user']['bashrc']['sources'] = %w(.bash_rbenv)
+default['user']['bashrc']['sources'] = %w(.bash_rbenv .bash_ndenv)
 default['user']['dotfiles'] = %w(.inputrc .vimrc .tmux.conf .gitconfig)
 default['user']['workplace'] = 'vcs'
 
@@ -37,3 +40,6 @@ default['ctags']['file'] = '.tags'
 
 default['rbenv']['version'] = '2.2.0'
 default['rbenv']['gems'] = %w(bundle rubocop rb-readline pry)
+
+default['ndenv']['version'] = 'v0.12.0'
+default['ndenv']['npms'] = %w(bower coffee-script grunt-cli)

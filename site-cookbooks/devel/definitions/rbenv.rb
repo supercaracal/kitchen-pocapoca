@@ -22,10 +22,6 @@ define :rbenv, user: 'root', home: '/tmp' do
     action :sync
   end
 
-  apt_package 'libffi-dev'
-  apt_package 'zlib1g-dev'
-  apt_package 'libssl-dev'
-
   bash 'rbenv init' do
     user params[:user]
     group params[:user]

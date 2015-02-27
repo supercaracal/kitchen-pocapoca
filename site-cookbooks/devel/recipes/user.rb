@@ -39,6 +39,11 @@ data_bag('users').each do |user_id|
     home home_dir
   end
 
+  ndenv do
+    user user_id
+    home home_dir
+  end
+
   source do
     user user_id
     home home_dir
