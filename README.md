@@ -33,16 +33,20 @@ My development environment VM configurations. With bootstraping tool and configu
 
 ## features
 
-* ssh user 'pocapoca'
-* random motd dot pictures
-* locally installation tools
-* tmux w/solarized color scheme
-* vim w/neobundle,powerline
-* ctags creation w/cron
-* git w/vimdiff
-* clisp REPL
-* ruby w/pry,bundle,rubocop
-* node w/grunt,bower,coffee-script
+* Added ssh user "pocapoca", only for me.
+* Added random motd dot pictures, only for me.
+* Added locally installation tools, only for me.
+* Added tmux w/solarized color scheme, only for me.
+* Added vim w/powerline via/neobundle, only for me.
+* Added ctags creation via/cron, only for me.
+* Added git w/vimdiff, only for me.
+* Added clisp REPL, only for me.
+* Added ruby via/rbenv w/pry and bundle and rubocop and rails, only for me.
+* Added node via/ndenv w/grunt and bower and coffee-script, only for me.
+
+## usage
+
+    user@host$ ssh pocapoca@127.0.0.1 -p 2222 -i /path/to/my_private_key
 
 ## back up by operation
 

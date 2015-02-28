@@ -43,7 +43,7 @@ default['ctags']['directories'] = %W(~/#{default['user']['workplace']})
 default['ctags']['file'] = '.tags'
 
 default['rbenv']['version'] = '2.2.0'
-default['rbenv']['gems'] = %w(bundle rubocop rb-readline pry)
+default['rbenv']['gems'] = %w(bundle rubocop rb-readline pry rails)
 
 default['ndenv']['version'] = 'v0.12.0'
 default['ndenv']['npms'] = %w(bower coffee-script grunt-cli)
