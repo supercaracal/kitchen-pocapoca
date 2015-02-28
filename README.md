@@ -46,7 +46,12 @@ My development environment VM configurations. With bootstraping tool and configu
 
 ## usage
 
+    user@host$ git clone git@github.com:supercaracal/kitchen-pocapoca.git
+    user@host$ cd kitchen-pocapoca
+    user@host$ berks vendor
+    user@host$ vagrant up
     user@host$ ssh pocapoca@127.0.0.1 -p 2222 -i /path/to/my_private_key
+    pocapoca@savanna:~$
 
 ## back up by operation
 
