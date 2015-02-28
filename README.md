@@ -41,8 +41,8 @@ My development environment VM configurations. With bootstraping tool and configu
 * Added ctags creation via/cron, only for me.
 * Added git w/vimdiff, only for me.
 * Added clisp REPL, only for me.
-* Added ruby via/rbenv w/pry and bundle and rubocop and rails, only for me.
-* Added node via/ndenv w/grunt and bower and coffee-script, only for me.
+* Added ruby via/rbenv w/pry bundle rubocop guard rails, only for me.
+* Added node via/ndenv w/grunt bower coffee-script, only for me.
 
 ## usage
 
@@ -90,7 +90,7 @@ Create postgresql user "insecure" for Rails applications.
 
 ### change password postgres user
 
-    vagrant@guest$ sudo -u postgres psql
+    vagrant@savanna:~$ sudo -u postgres psql
 
     postgres=# ALTER USER postgres PASSWORD 'newPassword';
     ALTER ROLE
@@ -99,13 +99,13 @@ Create postgresql user "insecure" for Rails applications.
 
 ### create insecure user
 
-    vagrant@guest$ createuser -U postgres -h localhost -W --echo --createdb --pwprompt insecure
+    vagrant@savanna:~$ createuser -U postgres -h localhost -W --echo --createdb --pwprompt insecure
     Enter password for new role: insecure
     Password:
     CREATE ROLE insecure PASSWORD 'md526d4949f81bc0573e4801d3a42165944' NOSUPERUSER CREATEDB NOCREATEROLE INHERIT LOGIN;
 
 ### check insecure user
-    vagrant@guest$ psql -U postgres -h localhost -W
+    vagrant@savanna:~$ psql -U postgres -h localhost -W
     Password for user postgres:
     psql (9.3.6)
     SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
