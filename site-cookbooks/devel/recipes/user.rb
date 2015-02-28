@@ -51,13 +51,6 @@ data_bag('users').each do |user_id|
     destination "#{home_dir}/.bashrc"
   end
 
-  source do
-    user user_id
-    home home_dir
-    files node['user']['tmux']['sources'].map { |f| "#{home_dir}/#{f}" }
-    destination "#{home_dir}/.tmux.conf"
-  end
-
   neobundle do
     user user_id
     home home_dir

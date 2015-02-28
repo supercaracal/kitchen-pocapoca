@@ -31,7 +31,6 @@ default['user']['bashrc']['sources'] = %w(.bash_rbenv .bash_ndenv)
 default['user']['dotfiles'] = %w(.inputrc .vimrc .tmux.conf .gitconfig)
 default['user']['workplace'] = 'vcs'
 default['user']['dependency-repositories'] = %w(https://github.com/seebi/tmux-colors-solarized.git)
-default['user']['tmux']['sources'] = %w(vcs/tmux-colors-solarized/tmuxcolors-256.conf)
 
 default['term']['color'] = 'xterm-256color'
 

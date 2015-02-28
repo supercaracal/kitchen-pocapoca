@@ -3,6 +3,7 @@ define :setup_workplace, user: 'root', home: '/tmp', dir: 'workplace', tags_file
     owner params[:user]
     group params[:user]
     action :touch
+    not_if { File.exists?("#{params[:home]}/#{params[:tags_file]}") }
   end
 
   directory "#{params[:home]}/#{params[:dir]}" do

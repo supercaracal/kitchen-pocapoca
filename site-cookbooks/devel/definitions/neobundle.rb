@@ -21,5 +21,6 @@ define :neobundle, user: 'root', home: '/tmp' do
     group params[:user]
     # code 'vim +NeoBundleInstall +qall' # MinTTY hangs
     # code "#{home_dir}/.vim/bundle/neobundle.vim/bin/neoinstall" # Hmm... not working.
+    only_if { false }
   end
 end
