@@ -63,8 +63,8 @@ define :ndenv, user: 'root', home: '/tmp', version: 'v0.12.0', pkgs: [] do
       group params[:user]
       cwd params[:home]
       environment 'HOME' => params[:home]
-      not_if "#{params[:home]}/.ndenv/shims/npm ls --depth=0 | grep '#{pkg}'"
-      command "#{params[:home]}/.ndenv/shims/npm install #{pkg}"
+      not_if "#{params[:home]}/.ndenv/shims/npm ls -g #{pkg}"
+      command "#{params[:home]}/.ndenv/shims/npm install -g #{pkg}"
     end
   end
 
