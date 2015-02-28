@@ -5,6 +5,8 @@ default['apt']['packages'] = %w(
   ncurses-term
   exuberant-ctags
   language-pack-ja
+  libpq-dev
+  postgresql
   git
   tmux
   curl

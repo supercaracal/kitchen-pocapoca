@@ -32,6 +32,7 @@ My development environment VM configurations. With bootstraping tool and configu
     drwxr-xr-x   5 pocapoca pocapoca    4096  2月 28 19:29 vcs/
 
 ## features
+
 * ssh user 'pocapoca'
 * random motd dot pictures
 * locally installation tools
@@ -42,3 +43,37 @@ My development environment VM configurations. With bootstraping tool and configu
 * clisp REPL
 * ruby w/pry,bundle,rubocop
 * node w/grunt,bower,coffee-script
+
+## back up by operation
+
+Create postgresql user "insecure" for Rails applications.
+
+    user@host$ vagrant ssh-config >> ~/.ssh/config
+    user@host$ ssh default
+
+    vagrant@guest$ sudo -u postgres psql
+
+    postgres=# ALTER USER postgres PASSWORD 'newPassword';
+    ALTER ROLE
+
+    postgres=# \q
+
+    vagrant@guest$ createuser -U postgres -h localhost -W --echo --createdb --pwprompt insecure
+    Enter password for new role:
+    Password:
+    CREATE ROLE insecure PASSWORD 'md526d4949f81bc0573e4801d3a42165944' NOSUPERUSER CREATEDB NOCREATEROLE INHERIT LOGIN;
+
+    vagrant@guest$ psql -U postgres -h localhost -W
+    Password for user postgres:
+    psql (9.3.6)
+    SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
+    Type "help" for help.
+
+    postgres=# \du
+                                 List of roles
+     Role name |                   Attributes                   | Member of
+    -----------+------------------------------------------------+-----------
+     insecure  | Create DB                                      | {}
+     postgres  | Superuser, Create role, Create DB, Replication | {}
+    
+    postgres=#
