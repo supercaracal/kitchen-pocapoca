@@ -4,43 +4,41 @@ My development environment VM configurations. With bootstraping tool and configu
 ## home
 
     pocapoca@savanna:~$ ll
-    合計 96
-    drwxr-xr-x  12 pocapoca pocapoca 4096  2月 27 21:20 ./
-    drwxr-xr-x   5 root     root     4096  2月 27 19:08 ../
-    -rw-------   1 pocapoca pocapoca  138  2月 27 21:19 .bash_history
-    -rw-r--r--   1 pocapoca pocapoca  220  4月  9  2014 .bash_logout
-    -rw-r--r--   1 pocapoca pocapoca   77  2月 27 21:22 .bash_ndenv
-    -rw-r--r--   1 pocapoca pocapoca   77  2月 27 21:21 .bash_rbenv
-    -rw-r--r--   1 pocapoca pocapoca 3795  2月 27 21:22 .bashrc
-    drwx------   2 pocapoca pocapoca 4096  2月 27 19:32 .cache/
-    drwxr-xr-x   3 pocapoca pocapoca 4096  2月 27 19:19 .gem/
-    -rw-r--r--   1 pocapoca pocapoca  227  2月 27 19:21 .gitconfig
-    -rw-r--r--   1 pocapoca pocapoca   30  2月 27 19:21 .inputrc
-    drwxr-xr-x   9 pocapoca pocapoca 4096  2月 27 21:16 .ndenv/
-    drwxr-xr-x 168 pocapoca pocapoca 4096  2月 27 21:18 .npm/
-    -rw-r--r--   1 pocapoca pocapoca  675  4月  9  2014 .profile
-    drwxr-xr-x  12 pocapoca pocapoca 4096  2月 27 19:18 .rbenv/
-    drwx------   2 pocapoca pocapoca 4096  2月 27 21:21 .ssh/
-    -rw-rw-r--   1 pocapoca pocapoca  344  2月 27 21:21 .tags
-    -rw-r--r--   1 pocapoca pocapoca  441  2月 27 19:21 .tmux.conf
-    drwx------   3 pocapoca pocapoca 4096  2月 27 19:08 .vim/
-    -rw-------   1 pocapoca pocapoca  769  2月 27 19:34 .viminfo
-    -rw-r--r--   1 pocapoca pocapoca 2207  2月 27 19:21 .vimrc
-    drwx------   2 pocapoca pocapoca 4096  2月 27 19:08 bin/
-    drwxr-xr-x   6 pocapoca pocapoca 4096  2月 27 21:22 node_modules/
-    drwxr-xr-x   2 pocapoca pocapoca 4096  2月 27 19:10 vcs/
+    合計 3604
+    drwxr-xr-x  12 pocapoca pocapoca    4096  2月 28 20:25 ./
+    drwxr-xr-x   5 root     root        4096  2月 28 16:30 ../
+    -rw-------   1 pocapoca pocapoca    1934  2月 28 20:22 .bash_history
+    -rw-r--r--   1 pocapoca pocapoca     220  4月  9  2014 .bash_logout
+    -rw-r--r--   1 pocapoca pocapoca      77  2月 28 20:23 .bash_ndenv
+    -rw-r--r--   1 pocapoca pocapoca      77  2月 28 20:23 .bash_rbenv
+    -rw-r--r--   1 pocapoca pocapoca    3825  2月 28 18:46 .bashrc
+    drwx------   4 pocapoca pocapoca    4096  2月 28 18:51 .cache/
+    drwxr-xr-x   3 pocapoca pocapoca    4096  2月 28 16:39 .gem/
+    -rw-r--r--   1 pocapoca pocapoca     227  2月 28 16:30 .gitconfig
+    -rw-r--r--   1 pocapoca pocapoca      30  2月 28 16:30 .inputrc
+    drwxr-xr-x   9 pocapoca pocapoca    4096  2月 28 16:41 .ndenv/
+    drwxrwxr-x   3 pocapoca pocapoca    4096  2月 28 19:28 .node-gyp/
+    drwxr-xr-x 239 pocapoca pocapoca   12288  2月 28 19:28 .npm/
+    -rw-r--r--   1 pocapoca pocapoca     675  4月  9  2014 .profile
+    -rw-------   1 pocapoca pocapoca     871  2月 28 18:59 .pry_history
+    drwxr-xr-x  12 pocapoca pocapoca    4096  2月 28 16:39 .rbenv/
+    drwx------   2 pocapoca pocapoca    4096  2月 28 20:22 .ssh/
+    -rw-rw-r--   1 pocapoca pocapoca 3578449  2月 28 20:25 .tags
+    -rw-r--r--   1 pocapoca pocapoca     599  2月 28 20:23 .tmux.conf
+    drwx------   3 pocapoca pocapoca    4096  2月 28 16:31 .vim/
+    -rw-------   1 pocapoca pocapoca    6328  2月 28 20:25 .viminfo
+    -rw-r--r--   1 pocapoca pocapoca    2453  2月 28 20:22 .vimrc
+    drwx------   2 pocapoca pocapoca    4096  2月 28 16:30 bin/
+    drwxr-xr-x   5 pocapoca pocapoca    4096  2月 28 19:29 vcs/
 
 ## features
 * ssh user 'pocapoca'
 * random motd dot pictures
 * locally installation tools
-* tmux
+* tmux w/solarized color scheme
 * vim w/neobundle,powerline
 * ctags creation w/cron
 * git w/vimdiff
 * clisp REPL
 * ruby w/pry,bundle,rubocop
 * node w/grunt,bower,coffee-script
-
-## TODO
-* tmux powerline
