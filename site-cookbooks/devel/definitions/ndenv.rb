@@ -1,4 +1,4 @@
-define :ndenv, user: 'root', home: '/tmp' do
+define :ndenv, user: 'root', home: '/tmp', version: 'v0.12.0', pkgs: [] do
   git "#{params[:home]}/.ndenv" do
     user params[:user]
     group params[:user]
@@ -32,21 +32,21 @@ define :ndenv, user: 'root', home: '/tmp' do
     EOS
   end
 
-  execute "ndenv install #{node['ndenv']['version']}" do
+  execute "ndenv install #{params[:version]}" do
     user params[:user]
     group params[:user]
     cwd params[:home]
     environment 'HOME' => params[:home]
-    creates "#{params[:home]}/.ndenv/versions/#{node['ndenv']['version']}"
-    command "#{params[:home]}/.ndenv/bin/ndenv install #{node['ndenv']['version']}"
+    creates "#{params[:home]}/.ndenv/versions/#{params[:version]}"
+    command "#{params[:home]}/.ndenv/bin/ndenv install #{params[:version]}"
   end
 
-  execute "ndenv global #{node['ndenv']['version']}" do
+  execute "ndenv global #{params[:version]}" do
     user params[:user]
     group params[:user]
     cwd params[:home]
     environment 'HOME' => params[:home]
-    command "#{params[:home]}/.ndenv/bin/ndenv global #{node['ndenv']['version']}"
+    command "#{params[:home]}/.ndenv/bin/ndenv global #{params[:version]}"
   end
 
   execute "ndenv rehash '1st'" do
@@ -57,14 +57,14 @@ define :ndenv, user: 'root', home: '/tmp' do
     command "#{params[:home]}/.ndenv/bin/ndenv rehash"
   end
 
-  node['ndenv']['npms'].each do |npm|
-    execute "npm install #{npm}" do
+  params[:pkgs].each do |pkg|
+    execute "npm install #{pkg}" do
       user params[:user]
       group params[:user]
       cwd params[:home]
       environment 'HOME' => params[:home]
-      creates "#{params[:home]}/.ndenv/shims/#{npm}"
-      command "#{params[:home]}/.ndenv/shims/npm install #{npm}"
+      not_if "#{params[:home]}/.ndenv/shims/npm ls --depth=0 | grep '#{pkg}'"
+      command "#{params[:home]}/.ndenv/shims/npm install #{pkg}"
     end
   end
 

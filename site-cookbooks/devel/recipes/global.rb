@@ -24,5 +24,7 @@ link '/etc/localtime' do
 end
 
 motd do
+  script node['global']['motd']['sctipt']
+  dir node['global']['motd']['dir']
   files node['global']['motd']['files']
 end

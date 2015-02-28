@@ -29,6 +29,35 @@ data_bag('users').each do |user_id|
     commands node['user']['commands']
   end
 
+  dotfile do
+    user user_id
+    home home_dir
+    files node['user']['dotfiles']
+  end
+
+  setup_workplace do
+    user user_id
+    home home_dir
+    dir node['user']['workplace']
+    tags_file node['ctags']['file']
+    tags_cmd "#{params[:home]}/bin/create_ctags"
+    repositories node['user']['dependency-repositories']
+  end
+
+  source do
+    user user_id
+    home home_dir
+    files node['user']['bashrc']['sources'].map { |f| "#{home_dir}/#{f}" }
+    destination "#{home_dir}/.bashrc"
+  end
+
+  source do
+    user user_id
+    home home_dir
+    files node['user']['tmux']['sources'].map { |f| "#{home_dir}/#{f}" }
+    destination "#{home_dir}/.tmux.conf"
+  end
+
   neobundle do
     user user_id
     home home_dir
@@ -37,22 +66,14 @@ data_bag('users').each do |user_id|
   rbenv do
     user user_id
     home home_dir
+    version node['rbenv']['version']
+    pkgs node['rbenv']['gems']
   end
 
   ndenv do
     user user_id
     home home_dir
-  end
-
-  source do
-    user user_id
-    home home_dir
-    files node['user']['bashrc']['sources']
-  end
-
-  dotfile do
-    user user_id
-    home home_dir
-    files node['user']['dotfiles']
+    version node['ndenv']['version']
+    pkgs node['ndenv']['npms']
   end
 end

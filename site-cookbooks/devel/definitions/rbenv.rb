@@ -1,4 +1,4 @@
-define :rbenv, user: 'root', home: '/tmp' do
+define :rbenv, user: 'root', home: '/tmp', version: '2.2.0', pkgs: [] do
   git "#{params[:home]}/.rbenv" do
     user params[:user]
     group params[:user]
@@ -32,21 +32,21 @@ define :rbenv, user: 'root', home: '/tmp' do
     EOS
   end
 
-  execute "rbenv install #{node['rbenv']['version']}" do
+  execute "rbenv install #{params[:version]}" do
     user params[:user]
     group params[:user]
     cwd params[:home]
     environment 'HOME' => params[:home]
-    creates "#{params[:home]}/.rbenv/versions/#{node['rbenv']['version']}"
-    command "#{params[:home]}/.rbenv/bin/rbenv install #{node['rbenv']['version']}"
+    creates "#{params[:home]}/.rbenv/versions/#{params[:version]}"
+    command "#{params[:home]}/.rbenv/bin/rbenv install #{params[:version]}"
   end
 
-  execute "rbenv global #{node['rbenv']['version']}" do
+  execute "rbenv global #{params[:version]}" do
     user params[:user]
     group params[:user]
     cwd params[:home]
     environment 'HOME' => params[:home]
-    command "#{params[:home]}/.rbenv/bin/rbenv global #{node['rbenv']['version']}"
+    command "#{params[:home]}/.rbenv/bin/rbenv global #{params[:version]}"
   end
 
   execute "rbenv rehash '1st'" do
@@ -57,14 +57,14 @@ define :rbenv, user: 'root', home: '/tmp' do
     command "#{params[:home]}/.rbenv/bin/rbenv rehash"
   end
 
-  node['rbenv']['gems'].each do |gem|
-    execute "gem install #{gem}" do
+  params[:pkgs].each do |pkg|
+    execute "gem install #{pkg}" do
       user params[:user]
       group params[:user]
       cwd params[:home]
       environment 'HOME' => params[:home]
-      creates "#{params[:home]}/.rbenv/shims/#{gem}"
-      command "#{params[:home]}/.rbenv/shims/gem install #{gem}"
+      not_if "#{params[:home]}/.rbenv/shims/gem which #{pkg}"
+      command "#{params[:home]}/.rbenv/shims/gem install #{pkg}"
     end
   end
 

@@ -1,16 +1,14 @@
-define :source, user: 'root', home: '/tmp', files: [], destination: '.bashrc' do
-  destination_file = "#{params[:home]}/#{params[:destination]}"
-
+define :source, user: 'root', files: [], destination: '/tmp/.bashrc', command: 'source' do
   params[:files].each do |file|
-    bash "add source #{file} to #{destination_file}" do
+    bash "add source #{file} to #{params[:destination]}" do
       user params[:user]
       group params[:user]
-      not_if "grep '#{file}' #{destination_file}"
+      not_if "grep '#{file}' #{params[:destination]}"
       code <<-EOS
-        touch #{destination_file}
-        echo '' >> #{destination_file}
-        echo '# added by configuration tools #{Time.now}' >> #{destination_file}
-        echo 'source ~/#{file}' >> #{destination_file}
+        touch #{params[:destination]}
+        echo '' >> #{params[:destination]}
+        echo '# added by configuration tools #{Time.now}' >> #{params[:destination]}
+        echo '#{params[:command]} "#{file}"' >> #{params[:destination]}
       EOS
     end
   end

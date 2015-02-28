@@ -14,6 +14,7 @@ default['apt']['packages'] = %w(
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
 default['global']['locale'] = 'Japan'
+default['global']['motd']['sctipt'] = '99-dotpics'
 default['global']['motd']['dir'] = '/etc/motds'
 default['global']['motd']['files'] = %w(
   motd_airman
@@ -29,6 +30,8 @@ default['user']['commands'] = %w(gitvimdiff create_ctags)
 default['user']['bashrc']['sources'] = %w(.bash_rbenv .bash_ndenv)
 default['user']['dotfiles'] = %w(.inputrc .vimrc .tmux.conf .gitconfig)
 default['user']['workplace'] = 'vcs'
+default['user']['dependency-repositories'] = %w(https://github.com/seebi/tmux-colors-solarized.git)
+default['user']['tmux']['sources'] = %w(vcs/tmux-colors-solarized/tmuxcolors-256.conf)
 
 default['term']['color'] = 'xterm-256color'
 
