@@ -46,24 +46,49 @@ My development environment VM configurations. With bootstraping tool and configu
 
 ## usage
 
+### bootstraping with provisioning
+
     user@host$ git clone git@github.com:supercaracal/kitchen-pocapoca.git
     user@host$ cd kitchen-pocapoca
     user@host$ berks vendor
     user@host$ vagrant up
+    user@host$ cp ~/.ssh/id_rsa ./
     user@host$ ssh pocapoca@127.0.0.1 -p 2222 -i /path/to/my_private_key
+
+### authentication settings
+
+    pocapoca@savanna:~$ mv /vagrant/id_rsa .ssh/
+    pocapoca@savanna:~$ chmod 600 ~/.ssh/id_rsa
+    pocapoca@savanna:~$ ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
+    pocapoca@savanna:~$ chmod 644 ~/.ssh/id_rsa.pub
+
+### heroku settings
+
     pocapoca@savanna:~$ heroku login
     Enter your Heroku credentials.
     Email: 
     Password (typing will be hidden):
     Authentication successful.
+
+    pocapoca@savanna:~$ heroku keys:add
+    Found an SSH public key at /home/pocapoca/.ssh/id_rsa.pub
+    Would you like to upload it to Heroku? [Yn] y
+    Uploading SSH public key /home/pocapoca/.ssh/id_rsa.pub... done
+
+### neobundle installation automatically
+
     pocapoca@savanna:~$ vim
 
 ## back up by operation
 
 Create postgresql user "insecure" for Rails applications.
 
+### ssh vagrant user
+
     user@host$ vagrant ssh-config >> ~/.ssh/config
     user@host$ ssh default
+
+### change password postgres user
 
     vagrant@guest$ sudo -u postgres psql
 
@@ -72,11 +97,14 @@ Create postgresql user "insecure" for Rails applications.
 
     postgres=# \q
 
+### create insecure user
+
     vagrant@guest$ createuser -U postgres -h localhost -W --echo --createdb --pwprompt insecure
-    Enter password for new role:
+    Enter password for new role: insecure
     Password:
     CREATE ROLE insecure PASSWORD 'md526d4949f81bc0573e4801d3a42165944' NOSUPERUSER CREATEDB NOCREATEROLE INHERIT LOGIN;
 
+### check insecure user
     vagrant@guest$ psql -U postgres -h localhost -W
     Password for user postgres:
     psql (9.3.6)
@@ -90,4 +118,4 @@ Create postgresql user "insecure" for Rails applications.
      insecure  | Create DB                                      | {}
      postgres  | Superuser, Create role, Create DB, Replication | {}
     
-    postgres=#
+    postgres=# \q
