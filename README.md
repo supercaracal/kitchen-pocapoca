@@ -51,7 +51,12 @@ My development environment VM configurations. With bootstraping tool and configu
     user@host$ berks vendor
     user@host$ vagrant up
     user@host$ ssh pocapoca@127.0.0.1 -p 2222 -i /path/to/my_private_key
-    pocapoca@savanna:~$
+    pocapoca@savanna:~$ heroku login
+    Enter your Heroku credentials.
+    Email: 
+    Password (typing will be hidden):
+    Authentication successful.
+    pocapoca@savanna:~$ vim
 
 ## back up by operation
 

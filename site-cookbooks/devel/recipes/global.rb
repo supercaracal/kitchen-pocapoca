@@ -28,3 +28,5 @@ motd do
   dir node['global']['motd']['dir']
   files node['global']['motd']['files']
 end
+
+heroku
