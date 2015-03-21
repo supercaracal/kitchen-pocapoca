@@ -30,7 +30,7 @@ default['global']['motd']['files'] = %w(
 default['user']['shell'] = '/bin/bash'
 default['user']['commands'] = %w(gitvimdiff create_ctags)
 default['user']['bashrc']['sources'] = %w(.bash_rbenv .bash_ndenv)
-default['user']['dotfiles'] = %w(.inputrc .vimrc .tmux.conf .gitconfig .Xresources)
+default['user']['dotfiles'] = %w(.inputrc .vimrc .tmux.conf .gitconfig .Xresources .gemrc)
 default['user']['workplace'] = 'vcs'
 default['user']['dependency-repositories'] = %w(https://github.com/seebi/tmux-colors-solarized.git)
 
