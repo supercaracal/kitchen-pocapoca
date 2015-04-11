@@ -8,6 +8,7 @@ default['apt']['packages'] = %w(
   libpq-dev
   postgresql
   libmysqld-dev
+  libsqlite3-dev
   git
   tmux
   curl
