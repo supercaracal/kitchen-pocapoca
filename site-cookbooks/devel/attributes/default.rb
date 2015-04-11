@@ -7,6 +7,7 @@ default['apt']['packages'] = %w(
   language-pack-ja
   libpq-dev
   postgresql
+  libmysqld-dev
   git
   tmux
   curl
