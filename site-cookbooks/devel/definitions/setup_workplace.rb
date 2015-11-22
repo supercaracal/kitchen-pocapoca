@@ -23,7 +23,7 @@ define :setup_workplace, user: 'root', home: '/tmp', dir: 'workplace', tags_file
   end
 
   params[:repositories].each do |repo|
-    git "#{params[:home]}/#{params[:dir]}/#{repo.match(/([^\/]+).git\z/)[1]}" do
+    git "#{params[:home]}/#{params[:dir]}/#{repo.match(%r{([^/]+).git\z})[1]}" do
       user params[:user]
       group params[:user]
       repository repo
