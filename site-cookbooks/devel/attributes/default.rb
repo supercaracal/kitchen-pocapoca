@@ -9,6 +9,7 @@ default['apt']['packages'] = %w(
   postgresql
   libmysqld-dev
   libsqlite3-dev
+  libreadline-dev
   git
   tmux
   curl
@@ -44,8 +45,8 @@ default['git']['user']['email'] = 'supercaracal@yahoo.co.jp'
 default['ctags']['directories'] = %W(~/#{default['user']['workplace']})
 default['ctags']['file'] = '.tags'
 
-default['rbenv']['version'] = '2.2.0'
+default['rbenv']['version'] = '2.2.3'
 default['rbenv']['gems'] = %w(bundle rubocop guard rb-readline pry rails)
 
-default['ndenv']['version'] = 'v0.12.0'
+default['ndenv']['version'] = 'v4.2.2'
 default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint)

@@ -1,0 +1,11 @@
+DEPENDENCIES
+  apt
+  build-essential
+  cron
+  vim
+
+GRAPH
+  apt (2.9.2)
+  build-essential (2.2.4)
+  cron (1.7.0)
+  vim (2.0.0)

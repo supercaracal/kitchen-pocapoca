@@ -26,9 +26,7 @@ Vagrant.configure(2) do |config|
   #
   #   $ vagrant plugin install vagrant-omnibus
   #
-  if Vagrant.has_plugin?('vagrant-omnibus')
-    config.omnibus.chef_version = 'latest'
-  end
+  config.omnibus.chef_version = 'latest' if Vagrant.has_plugin?('vagrant-omnibus')
 
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as

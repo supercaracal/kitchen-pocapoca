@@ -12,6 +12,20 @@ node['apt']['packages'].each do |pkg|
   end
 end
 
+template '/etc/postgresql/9.3/main/postgresql.conf' do
+  source 'etc/postgresql/postgresql.conf.erb'
+  owner 'postgres'
+  group 'postgres'
+  mode '0644'
+end
+
+template '/etc/postgresql/9.3/main/pg_hba.conf' do
+  source 'etc/postgresql/pg_hba.conf.erb'
+  owner 'postgres'
+  group 'postgres'
+  mode '0640'
+end
+
 bash 'update-locale' do
   user 'root'
   code "update-locale #{node['global']['lang']}"

@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf'
-
 # Uncomment these lines if you want to live on the Edge:
 #
 # group :development do
 #   gem "berkshelf", github: "berkshelf/berkshelf"
-#   gem "vagrant", github: "mitchellh/vagrant", tag: "v1.6.3"
+#   gem "vagrant", github: "mitchellh/vagrant"
 # end
 #
 # group :plugins do
@@ -14,5 +12,7 @@ gem 'berkshelf'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem 'test-kitchen'
-gem 'kitchen-vagrant'
+gem 'rubocop'
+gem 'net-ssh', '2.9.3.beta1'
+gem 'serverspec'
+gem 'winrm'
