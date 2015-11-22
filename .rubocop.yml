@@ -15,7 +15,6 @@ NumericLiterals:
   Enabled: false
 
 AllCops:
-  RunRailsCops: true
   Exclude:
     - '.bundle/**/*'
     - 'berks-cookbooks/**/*'
