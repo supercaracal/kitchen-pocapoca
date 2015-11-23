@@ -52,6 +52,7 @@ GEM
     tins (1.6.0)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
