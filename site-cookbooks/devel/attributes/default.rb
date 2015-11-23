@@ -49,4 +49,4 @@ default['rbenv']['version'] = '2.2.3'
 default['rbenv']['gems'] = %w(bundle rubocop guard rb-readline pry rails)
 
 default['ndenv']['version'] = 'v4.2.2'
-default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint)
+default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint david)
