@@ -79,6 +79,10 @@ My development environment VM configurations. With bootstraping tool and configu
 
     pocapoca@savanna:~$ vim
 
+### serverspec
+
+    user@host$ bundle exec rake spec:savanna
+
 ## back up by operation
 
 Create postgresql user "insecure" for Rails applications.

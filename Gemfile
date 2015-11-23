@@ -13,5 +13,9 @@ source 'https://rubygems.org'
 # end
 
 gem 'rubocop'
+
 gem 'net-ssh', '2.9.3.beta1'
+gem 'highline'
+gem 'rake'
+gem 'rspec'
 gem 'serverspec'
