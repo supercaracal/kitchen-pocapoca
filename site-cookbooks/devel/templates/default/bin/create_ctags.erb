@@ -1,8 +1,11 @@
 #!/bin/bash
 
 tmpfile='_tags'
+tagfile='<%= node['ctags']['file'] %>'
 
-ctags -Rf $HOME/$tmpfile <%= node['ctags']['directories'].join(' ') %>
+touch $HOME/$tagfile $HOME/$tmpfile
 
-rm $HOME/<%= node['ctags']['file'] %>
-mv $HOME/$tmpfile $HOME/<%= node['ctags']['file'] %>
+ctags --exclude=.git --exclude=node_modules --exclude=.bundle --exclude=tmp --exclude=log -Rf $HOME/$tmpfile <%= node['ctags']['directories'].join(' ') %>
+
+rm $HOME/$tagfile
+mv $HOME/$tmpfile $HOME/$tagfile
