@@ -51,7 +51,7 @@ data_bag('users').each do |user_id|
     destination "#{home_dir}/.bashrc"
   end
 
-  neobundle do
+  dein do
     user user_id
     home home_dir
   end
