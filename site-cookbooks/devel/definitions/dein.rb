@@ -12,7 +12,7 @@ define :dein, user: 'root', home: '/tmp' do
     user params[:user]
     group params[:user]
     code <<-EOH
-      /usr/bin/curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/vim_dein_installer.sh
+      /usr/bin/curl -s -S https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/vim_dein_installer.sh
       /bin/bash /tmp/vim_dein_installer.sh #{params[:home]}/.vim/dein
     EOH
   end

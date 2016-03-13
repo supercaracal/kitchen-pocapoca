@@ -17,7 +17,7 @@ define :setup_workplace, user: 'root', home: '/tmp', dir: 'workplace', tags_file
   cron_d 'create_ctags' do
     user params[:user]
     home params[:home]
-    minute '*/5'
+    minute '0,5,10,15,20,25,30,35,40,45,50,55'
     command params[:tags_cmd]
     only_if "which #{params[:tags_cmd]}"
   end
