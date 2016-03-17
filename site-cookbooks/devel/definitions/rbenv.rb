@@ -2,7 +2,7 @@ define :rbenv, user: 'root', home: '/tmp', version: '2.2.0', pkgs: [] do
   git "#{params[:home]}/.rbenv" do
     user params[:user]
     group params[:user]
-    repository 'https://github.com/sstephenson/rbenv.git'
+    repository 'https://github.com/rbenv/rbenv.git'
     revision 'master'
     action :sync
   end
@@ -17,7 +17,7 @@ define :rbenv, user: 'root', home: '/tmp', version: '2.2.0', pkgs: [] do
   git "#{params[:home]}/.rbenv/plugins/ruby-build" do
     user params[:user]
     group params[:user]
-    repository 'https://github.com/sstephenson/ruby-build.git'
+    repository 'https://github.com/rbenv/ruby-build.git'
     revision 'master'
     action :sync
   end
