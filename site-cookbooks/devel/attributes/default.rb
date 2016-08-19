@@ -45,8 +45,8 @@ default['git']['user']['email'] = 'supercaracal@yahoo.co.jp'
 default['ctags']['directories'] = %W(~/#{default['user']['workplace']})
 default['ctags']['file'] = '.tags'
 
-default['rbenv']['version'] = '2.2.3'
-default['rbenv']['gems'] = %w(bundle rubocop guard rb-readline pry rails)
+default['rbenv']['version'] = '2.3.1'
+default['rbenv']['gems'] = %w(bundle rubocop guard rb-readline pry rails scss_lint)
 
-default['ndenv']['version'] = 'v4.2.2'
-default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint david csslint)
+default['ndenv']['version'] = 'v6.4.0'
+default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint david)
