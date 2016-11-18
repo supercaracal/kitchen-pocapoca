@@ -1,5 +1,5 @@
-shared_examples 'node::init' do
+shared_examples 'node::init' do |version: 'v7.0.0'|
   describe command('/home/pocapoca/.ndenv/shims/node --version') do
-    its(:stdout) { should match(/v4.2.2/) }
+    its(:stdout) { should match(version) }
   end
 end
