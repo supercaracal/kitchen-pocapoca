@@ -5,7 +5,18 @@ DEPENDENCIES
   vim
 
 GRAPH
-  apt (2.9.2)
-  build-essential (2.2.4)
-  cron (1.7.0)
-  vim (2.0.0)
+  apt (5.0.0)
+    compat_resource (>= 12.14.7)
+  build-essential (7.0.2)
+    compat_resource (>= 12.14)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  compat_resource (12.16.2)
+  cron (3.0.0)
+  mingw (1.2.4)
+    compat_resource (>= 0.0.0)
+    seven_zip (>= 0.0.0)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
+  vim (2.0.2)
+  windows (2.0.2)

@@ -12,14 +12,14 @@ node['apt']['packages'].each do |pkg|
   end
 end
 
-template '/etc/postgresql/9.3/main/postgresql.conf' do
+template '/etc/postgresql/9.5/main/postgresql.conf' do
   source 'etc/postgresql/postgresql.conf.erb'
   owner 'postgres'
   group 'postgres'
   mode '0644'
 end
 
-template '/etc/postgresql/9.3/main/pg_hba.conf' do
+template '/etc/postgresql/9.5/main/pg_hba.conf' do
   source 'etc/postgresql/pg_hba.conf.erb'
   owner 'postgres'
   group 'postgres'
@@ -42,5 +42,3 @@ motd do
   dir node['global']['motd']['dir']
   files node['global']['motd']['files']
 end
-
-heroku
