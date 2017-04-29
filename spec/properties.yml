@@ -6,5 +6,5 @@
     :user: 'pocapoca'
     :user_known_hosts_file: '/dev/null'
     :auth_methods: false
-    :keys: '~/.ssh/id_rsa.pub'
+    :keys: '~/.ssh/id_rsa'
     :keys_only: true
