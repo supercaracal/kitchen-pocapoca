@@ -12,7 +12,7 @@ data_bag('users').each do |user_id|
 
   user user_id do
     password user_attrs['password']
-    supports manage_home: true
+    manage_home true
     home home_dir
     shell user_attrs['shell'] || node['user']['shell']
   end
