@@ -45,8 +45,8 @@ default['git']['user']['email'] = 'supercaracal@yahoo.co.jp'
 default['ctags']['directories'] = %W(~/#{default['user']['workplace']})
 default['ctags']['file'] = '.tags'
 
-default['rbenv']['version'] = '2.3.1'
+default['rbenv']['version'] = '2.4.1'
 default['rbenv']['gems'] = %w(bundler rubocop rb-readline pry rails scss_lint)
 
 default['ndenv']['version'] = 'v7.0.0'
-default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint david)
+default['ndenv']['npms'] = %w(bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import)
