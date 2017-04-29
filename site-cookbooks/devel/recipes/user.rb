@@ -47,7 +47,7 @@ data_bag('users').each do |user_id|
   source do
     user user_id
     home home_dir
-    files node['user']['bashrc']['sources'].map { |f| "#{home_dir}/#{f}" }
+    files(node['user']['bashrc']['sources'].map { |f| "#{home_dir}/#{f}" })
     destination "#{home_dir}/.bashrc"
   end
 
@@ -68,5 +68,13 @@ data_bag('users').each do |user_id|
     home home_dir
     version node['ndenv']['version']
     pkgs node['ndenv']['npms']
+  end
+
+  template "/etc/sudoers.d/91-#{user_id}" do
+    source 'etc/sudoers.d/91-savanna'
+    variables user: user_id
+    owner 'root'
+    group 'root'
+    mode '0440'
   end
 end
