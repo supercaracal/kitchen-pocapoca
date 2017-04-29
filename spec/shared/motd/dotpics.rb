@@ -13,7 +13,7 @@ shared_examples 'motd::dotpics' do
     it { should be_mode(755) }
   end
 
-  %w(airman bubble_slime docker dq2_allstar hagure_metal slime_allstar).each do |dotpic|
+  %w[airman bubble_slime docker dq2_allstar hagure_metal slime_allstar].each do |dotpic|
     describe file("/etc/motds/motd_#{dotpic}") do
       it { should be_file }
       it { should be_owned_by('root') }

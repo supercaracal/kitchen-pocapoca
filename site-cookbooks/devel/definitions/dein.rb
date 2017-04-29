@@ -1,5 +1,5 @@
 define :dein, user: 'root', home: '/tmp' do
-  %w(.vim .vim/dein).each do |dir|
+  %w[.vim .vim/dein].each do |dir|
     directory "#{params[:home]}/#{dir}" do
       owner params[:user]
       group params[:user]

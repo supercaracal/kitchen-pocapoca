@@ -30,4 +30,4 @@ options = properties[:savanna][:ssh]
 set :host, options[:host_name]
 set :ssh_options, options
 
-set_property properties[:savanna].reject { |k, _v| k == :ssh }
+set_property(properties[:savanna].reject { |k, _v| k == :ssh })

@@ -104,7 +104,7 @@ Vagrant.configure(2) do |config|
     chef.data_bags_path = './data_bags'
     chef.environments_path = './environments'
     chef.roles_path = './roles'
-    chef.cookbooks_path = %w(./berks-cookbooks ./site-cookbooks)
+    chef.cookbooks_path = %w[./berks-cookbooks ./site-cookbooks]
     chef.add_recipe 'apt'
     chef.add_recipe 'build-essential'
     chef.add_recipe 'vim'
