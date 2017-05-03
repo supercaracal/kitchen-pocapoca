@@ -6,6 +6,7 @@ My development environment VM configurations.
 * Random motd dot pictures
 * User pocapoca
 * Vim, Tmux
+* PostgreSQL
 * Ruby
 * Node
 * Golang
