@@ -70,6 +70,12 @@ data_bag('users').each do |user_id|
     pkgs node['ndenv']['npms']
   end
 
+  golang_init do
+    user user_id
+    home home_dir
+    pkgs node['golang']['packages']
+  end
+
   template "/etc/sudoers.d/91-#{user_id}" do
     source 'etc/sudoers.d/91-savanna'
     variables user: user_id

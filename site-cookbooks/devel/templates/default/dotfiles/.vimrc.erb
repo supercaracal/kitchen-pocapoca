@@ -91,7 +91,8 @@ let Tlist_Show_One_File=1
 vnoremap <silent><Leader>al :Align @1 =><CR>
 noremap <silent><Leader>tl :TlistToggle<CR>
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'javascript', 'scss'], 'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'javascript', 'scss', 'go'], 'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint', 'eslint']
 let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']

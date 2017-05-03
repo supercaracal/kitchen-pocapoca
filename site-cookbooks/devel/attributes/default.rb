@@ -32,7 +32,7 @@ default['global']['motd']['files'] = %w[
 
 default['user']['shell'] = '/bin/bash'
 default['user']['commands'] = %w[gitvimdiff create_ctags]
-default['user']['bashrc']['sources'] = %w[.bash_rbenv .bash_ndenv]
+default['user']['bashrc']['sources'] = %w[.bash_rbenv .bash_ndenv .bash_golang]
 default['user']['dotfiles'] = %w[.inputrc .vimrc .tmux.conf .gitconfig .Xresources .gemrc]
 default['user']['workplace'] = 'vcs'
 default['user']['dependency-repositories'] = %w[https://github.com/seebi/tmux-colors-solarized.git]
@@ -50,3 +50,6 @@ default['rbenv']['gems'] = %w[bundler rubocop rb-readline pry rails scss_lint]
 
 default['ndenv']['version'] = 'v7.0.0'
 default['ndenv']['npms'] = %w[bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import]
+
+default['golang']['version'] = '1.8.1'
+default['golang']['packages'] = %w[github.com/motemen/gore github.com/nsf/gocode github.com/k0kubun/pp github.com/golang/lint/golint golang.org/x/tools/cmd/...]
