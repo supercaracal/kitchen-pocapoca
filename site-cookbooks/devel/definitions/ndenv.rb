@@ -27,7 +27,7 @@ define :ndenv, user: 'root', home: '/tmp', version: 'v0.12.0', pkgs: [] do
     group params[:user]
     code <<-EOS
       cp /dev/null #{params[:home]}/.bash_ndenv
-      echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> #{params[:home]}/.bash_ndenv
+      echo 'export PATH="$PATH:$HOME/.ndenv/bin"' >> #{params[:home]}/.bash_ndenv
       echo 'eval "$($HOME/.ndenv/bin/ndenv init -)"' >> #{params[:home]}/.bash_ndenv
     EOS
   end

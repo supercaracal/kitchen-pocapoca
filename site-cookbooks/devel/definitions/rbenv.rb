@@ -27,7 +27,7 @@ define :rbenv, user: 'root', home: '/tmp', version: '2.2.0', pkgs: [] do
     group params[:user]
     code <<-EOS
       cp /dev/null #{params[:home]}/.bash_rbenv
-      echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> #{params[:home]}/.bash_rbenv
+      echo 'export PATH="$PATH:$HOME/.rbenv/bin"' >> #{params[:home]}/.bash_rbenv
       echo 'eval "$($HOME/.rbenv/bin/rbenv init -)"' >> #{params[:home]}/.bash_rbenv
     EOS
   end
