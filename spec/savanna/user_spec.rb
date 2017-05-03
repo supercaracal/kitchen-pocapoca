@@ -10,4 +10,5 @@ describe 'savanna::user' do
   include_examples 'ruby::init', version: '2.4.1'
   include_examples 'node::init', version: 'v7.0.0'
   include_examples 'sudoers::savanna'
+  include_examples 'golang::init', user_name: 'pocapoca'
 end
