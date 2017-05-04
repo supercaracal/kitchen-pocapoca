@@ -53,3 +53,5 @@ default['ndenv']['npms'] = %w[bower coffee-script grunt-cli jshint david eslint-
 
 default['golang']['version'] = '1.8.1'
 default['golang']['packages'] = %w[github.com/motemen/gore github.com/nsf/gocode github.com/k0kubun/pp github.com/golang/lint/golint golang.org/x/tools/cmd/...]
+
+default['docker']['compose']['version'] = '1.13.0'

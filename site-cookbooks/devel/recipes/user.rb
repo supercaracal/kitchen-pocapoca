@@ -84,3 +84,7 @@ data_bag('users').each do |user_id|
     mode '0440'
   end
 end
+
+group 'docker' do
+  members data_bag('users')
+end

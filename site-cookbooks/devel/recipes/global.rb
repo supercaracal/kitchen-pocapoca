@@ -46,3 +46,17 @@ end
 golang_install do
   version node['golang']['version']
 end
+
+docker_service 'default' do
+  action %i[create start]
+end
+
+bash 'Docker Compose Install' do
+  user 'root'
+  group 'root'
+  code <<-EOH
+    /usr/bin/curl -L https://github.com/docker/compose/releases/download/#{node['docker']['compose']['version']}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+  EOH
+  creates '/usr/local/bin/docker-compose'
+end
