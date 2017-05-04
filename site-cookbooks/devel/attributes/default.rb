@@ -15,6 +15,7 @@ default['apt']['packages'] = %w[
   curl
   tree
   clisp
+  jq
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
