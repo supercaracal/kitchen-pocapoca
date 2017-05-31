@@ -40,8 +40,8 @@ default['user']['dependency-repositories'] = %w[https://github.com/seebi/tmux-co
 
 default['term']['color'] = 'xterm-256color'
 
-default['git']['user']['name'] = 'supercaracal'
-default['git']['user']['email'] = 'supercaracal@yahoo.co.jp'
+default['git']['user']['name'] = 'Taishi Kasuga'
+default['git']['user']['email'] = 'proxy0721@gmail.com'
 
 default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
