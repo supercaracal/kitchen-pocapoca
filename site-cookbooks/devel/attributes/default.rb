@@ -47,7 +47,7 @@ default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
 
 default['rbenv']['version'] = '2.4.1'
-default['rbenv']['gems'] = %w[bundler rubocop rb-readline pry rails scss_lint]
+default['rbenv']['gems'] = %w[bundler rubocop rubocop-rspec rb-readline pry rails scss_lint]
 
 default['ndenv']['version'] = 'v7.0.0'
 default['ndenv']['npms'] = %w[bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import]
