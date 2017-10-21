@@ -1,4 +1,18 @@
 ---
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
+  Exclude:
+    - '.bundle/**/*'
+    - 'berks-cookbooks/**/*'
+
+Layout/EndOfLine:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'site-cookbooks/**/*'
+
 Metrics/LineLength:
   Enabled: false
 
@@ -13,10 +27,3 @@ Style/NumericLiterals:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-AllCops:
-  TargetRubyVersion: 2.4
-  DisplayCopNames: true
-  Exclude:
-    - '.bundle/**/*'
-    - 'berks-cookbooks/**/*'

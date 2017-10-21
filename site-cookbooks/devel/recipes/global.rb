@@ -50,22 +50,22 @@ end
 bash 'Docker Install' do
   user 'root'
   group 'root'
-  code <<-EOH
+  code <<-CODE
     apt install -y -q apt-transport-https ca-certificates curl software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
     add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable"
     apt update -y -q
     apt install -y -q docker-ce
-  EOH
+  CODE
   creates '/usr/bin/docker'
 end
 
 bash 'Docker Compose Install' do
   user 'root'
   group 'root'
-  code <<-EOH
+  code <<-CODE
     /usr/bin/curl -fsSL https://github.com/docker/compose/releases/download/#{node['docker']['compose']['version']}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
-  EOH
+  CODE
   creates '/usr/local/bin/docker-compose'
 end

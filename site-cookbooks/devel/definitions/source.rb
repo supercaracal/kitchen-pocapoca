@@ -4,12 +4,12 @@ define :source, user: 'root', files: [], destination: '/tmp/.bashrc', command: '
       user params[:user]
       group params[:user]
       not_if "grep '#{file}' #{params[:destination]}"
-      code <<-EOS
+      code <<-CODE
         touch #{params[:destination]}
         echo '' >> #{params[:destination]}
         echo '# added by configuration tools #{Time.now}' >> #{params[:destination]}
         echo '#{params[:command]} "#{file}"' >> #{params[:destination]}
-      EOS
+      CODE
     end
   end
 end

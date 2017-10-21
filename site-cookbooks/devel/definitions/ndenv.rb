@@ -25,11 +25,11 @@ define :ndenv, user: 'root', home: '/tmp', version: 'v0.12.0', pkgs: [] do
   bash 'ndenv init' do
     user params[:user]
     group params[:user]
-    code <<-EOS
+    code <<-CODE
       cp /dev/null #{params[:home]}/.bash_ndenv
       echo 'export PATH="$PATH:$HOME/.ndenv/bin"' >> #{params[:home]}/.bash_ndenv
       echo 'eval "$($HOME/.ndenv/bin/ndenv init -)"' >> #{params[:home]}/.bash_ndenv
-    EOS
+    CODE
   end
 
   execute "ndenv install #{params[:version]}" do
