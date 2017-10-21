@@ -14,7 +14,7 @@ Vagrant.configure('2') do |config|
 
   config.omnibus.chef_version = 'latest' if Vagrant.has_plugin?('vagrant-omnibus')
   config.berkshelf.enabled = false if Vagrant.has_plugin?('vagrant-berkshelf')
-  config.disksize.size = '4GB' if Vagrant.has_plugin?('vagrant-disksize')
+  config.disksize.size = '10GB' if Vagrant.has_plugin?('vagrant-disksize')
 
   config.vm.provision :chef_solo do |chef|
     chef.data_bags_path = './data_bags'
