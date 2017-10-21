@@ -100,7 +100,7 @@ set-window-option -g aggressive-resize
 
 ## Pacman
 ```
-user@host$ pacman -S mingw-w64-x86_64-toolchain vim openssh tmux
+user@host$ pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-diffutils vim openssh tmux
 ```
 
 ## Vagrant plugins
