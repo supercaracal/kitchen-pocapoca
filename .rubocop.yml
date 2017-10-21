@@ -1,23 +1,22 @@
-LineLength:
+---
+Metrics/LineLength:
   Enabled: false
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
-AsciiComments:
+Style/AsciiComments:
   Enabled: false
 
-LiteralInInterpolation:
-  Exclude:
-    - 'spec/**/*'
-
-NumericLiterals:
+Style/NumericLiterals:
   Enabled: false
 
-BlockLength:
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
   Exclude:
     - '.bundle/**/*'
     - 'berks-cookbooks/**/*'

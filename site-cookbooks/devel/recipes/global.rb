@@ -12,14 +12,14 @@ node['apt']['packages'].each do |pkg|
   end
 end
 
-template '/etc/postgresql/9.5/main/postgresql.conf' do
+template "/etc/postgresql/#{node['global']['postgresql']['version']}/main/postgresql.conf" do
   source 'etc/postgresql/postgresql.conf.erb'
   owner 'postgres'
   group 'postgres'
   mode '0644'
 end
 
-template '/etc/postgresql/9.5/main/pg_hba.conf' do
+template "/etc/postgresql/#{node['global']['postgresql']['version']}/main/pg_hba.conf" do
   source 'etc/postgresql/pg_hba.conf.erb'
   owner 'postgres'
   group 'postgres'
@@ -47,15 +47,24 @@ golang_install do
   version node['golang']['version']
 end
 
-docker_service 'default' do
-  action %i[create start]
+bash 'Docker Install' do
+  user 'root'
+  group 'root'
+  code <<-EOH
+    apt install -y -q apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+    add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu zesty stable"
+    apt update -y -q
+    apt install -y -q docker-ce
+  EOH
+  creates '/usr/bin/docker'
 end
 
 bash 'Docker Compose Install' do
   user 'root'
   group 'root'
   code <<-EOH
-    /usr/bin/curl -L https://github.com/docker/compose/releases/download/#{node['docker']['compose']['version']}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+    /usr/bin/curl -fsSL https://github.com/docker/compose/releases/download/#{node['docker']['compose']['version']}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
   EOH
   creates '/usr/local/bin/docker-compose'

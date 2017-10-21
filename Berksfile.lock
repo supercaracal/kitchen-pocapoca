@@ -2,7 +2,6 @@ DEPENDENCIES
   apt
   build-essential
   cron
-  docker
   vim
 
 GRAPH
@@ -14,7 +13,6 @@ GRAPH
     seven_zip (>= 0.0.0)
   compat_resource (12.16.2)
   cron (3.0.0)
-  docker (2.15.6)
   mingw (1.2.4)
     compat_resource (>= 0.0.0)
     seven_zip (>= 0.0.0)

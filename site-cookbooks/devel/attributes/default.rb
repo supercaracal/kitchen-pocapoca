@@ -31,6 +31,8 @@ default['global']['motd']['files'] = %w[
   motd_slime_allstar
 ]
 
+default['global']['postgresql']['version'] = '9.6'
+
 default['user']['shell'] = '/bin/bash'
 default['user']['commands'] = %w[gitvimdiff create_ctags]
 default['user']['bashrc']['sources'] = %w[.bash_rbenv .bash_ndenv .bash_golang]
@@ -46,13 +48,13 @@ default['git']['user']['email'] = 'proxy0721@gmail.com'
 default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
 
-default['rbenv']['version'] = '2.4.1'
+default['rbenv']['version'] = '2.4.2'
 default['rbenv']['gems'] = %w[bundler rubocop rubocop-rspec rb-readline pry rails scss_lint]
 
-default['ndenv']['version'] = 'v7.0.0'
+default['ndenv']['version'] = 'v8.7.0'
 default['ndenv']['npms'] = %w[bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import]
 
-default['golang']['version'] = '1.8.1'
+default['golang']['version'] = '1.9.1'
 default['golang']['packages'] = %w[github.com/motemen/gore github.com/nsf/gocode github.com/k0kubun/pp github.com/golang/lint/golint golang.org/x/tools/cmd/...]
 
-default['docker']['compose']['version'] = '1.13.0'
+default['docker']['compose']['version'] = '1.16.1'
