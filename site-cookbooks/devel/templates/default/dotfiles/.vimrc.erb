@@ -8,48 +8,40 @@
 "        `8'       o888o o8o        o888o o888o  o888o  `Y8bood8P'  "
 " vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv "
 
-" plugins ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-
-  set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+if &compatible
+  set nocompatible
 endif
 
-call dein#begin(expand('~/.cache/dein'))
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('Shougo/neocomplcache')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/unite.vim')
-call dein#add('w0ng/vim-hybrid')
-call dein#add('itchyny/lightline.vim')
-call dein#add('h1mesuke/vim-alignta')
-call dein#add('taglist.vim')
-call dein#add('scrooloose/syntastic')
-call dein#add('sakuraiyuta/commentout.vim')
-call dein#add('slim-template/vim-slim')
-call dein#add('fatih/vim-go')
+if dein#load_state(expand('~/.cache/dein'))
+  call dein#begin(expand('~/.cache/dein'))
 
-call dein#end()
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('Shougo/neocomplcache')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('w0ng/vim-hybrid')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('h1mesuke/vim-alignta')
+  call dein#add('slim-template/vim-slim')
+  call dein#add('fatih/vim-go')
+  call dein#add('majutsushi/tagbar')
+  call dein#add('sakuraiyuta/commentout.vim')
+  call dein#add('hashivim/vim-hashicorp-tools')
+
+  call dein#end()
+  call dein#save_state()
+endif
 
 filetype plugin indent on
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+syntax enable
 
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp932,euc-jp,latin1,default
 set backspace=indent,eol,start
-
-if has("syntax")
-  syntax on
-endif
-
-" colorscheme elflord
-" colorscheme koehler
-" colorscheme desert
 
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
@@ -90,10 +82,14 @@ let Tlist_Exit_OnlyWindow=1
 let Tlist_Show_One_File=1
 
 vnoremap <silent><Leader>al :Align @1 =><CR>
-noremap <silent><Leader>tl :TlistToggle<CR>
+noremap <silent><Leader>tl :TagbarToggle<CR>
 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'javascript', 'scss', 'go'], 'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jshint', 'eslint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+
+" add jbuilder syntax highlighting
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+au BufWrite *.hcl,*.tf :TerraformFmt
