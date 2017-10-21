@@ -1,6 +1,5 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-
 Vagrant.configure('2') do |config|
   config.vm.box = 'ubuntu/zesty64'
   config.vm.hostname = 'savanna'
@@ -9,12 +8,10 @@ Vagrant.configure('2') do |config|
   config.vm.network 'forwarded_port', guest: 3000, host: 3000
 
   config.vm.provider :virtualbox do |vb|
-    vb.memory = '1024'
+    vb.memory = '2048'
   end
 
   config.omnibus.chef_version = 'latest' if Vagrant.has_plugin?('vagrant-omnibus')
-  config.berkshelf.enabled = false if Vagrant.has_plugin?('vagrant-berkshelf')
-  config.disksize.size = '10GB' if Vagrant.has_plugin?('vagrant-disksize')
 
   config.vm.provision :chef_solo do |chef|
     chef.data_bags_path = './data_bags'

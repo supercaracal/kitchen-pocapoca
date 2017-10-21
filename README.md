@@ -20,6 +20,7 @@ My vm for the windows host.
 * Add `C:\msys64\mingw64\bin` to PATH
 * Add `%USERPROFILE%\AppData\Local\Programs\Git\cmd` to PATH
 * Add `MSYS2_PATH_TYPE=inherit` to ENV
+* Add `C:/Users /home` to `/etc/fstab`
 
 ## .minttyrc
 ```
@@ -106,7 +107,6 @@ user@host$ pacman -S mingw-w64-x86_64-toolchain vim openssh tmux
 ```
 user@host$ vagrant plugin install vagrant-omnibus
 user@host$ vagrant plugin install vagrant-share
-user@host$ vagrant plugin install vagrant-disksize
 ```
 
 ## Start-up VM
