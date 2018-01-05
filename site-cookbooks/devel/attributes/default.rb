@@ -58,7 +58,7 @@ default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
 
 default['pyenv']['version'] = '3.6.4'
-default['pyenv']['pip'] = %w[]
+default['pyenv']['pip'] = %w[cpplint]
 
 default['rbenv']['version'] = '2.4.2'
 default['rbenv']['gem'] = %w[bundler rubocop rubocop-rspec rb-readline pry rails scss_lint]
