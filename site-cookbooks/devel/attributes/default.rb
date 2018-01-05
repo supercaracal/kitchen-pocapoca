@@ -44,8 +44,20 @@ default['global']['postgresql']['version'] = '9.6'
 
 default['user']['shell'] = '/bin/bash'
 default['user']['commands'] = %w[gitvimdiff create_ctags]
-default['user']['bashrc']['sources'] = %w[.bash_rbenv .bash_ndenv .bash_golang]
-default['user']['dotfiles'] = %w[.inputrc .vimrc .tmux.conf .gitconfig .Xresources .gemrc]
+default['user']['bashrc']['sources'] = %w[
+  .bash_golang
+  .bash_ndenv
+  .bash_pyenv
+  .bash_rbenv
+]
+default['user']['dotfiles'] = %w[
+  .Xresources
+  .gemrc
+  .gitconfig
+  .inputrc
+  .tmux.conf
+  .vimrc
+]
 default['user']['workplace'] = 'vcs'
 default['user']['dependency-repositories'] = %w[https://github.com/seebi/tmux-colors-solarized.git]
 
@@ -61,12 +73,35 @@ default['pyenv']['version'] = '3.6.4'
 default['pyenv']['pip'] = %w[cpplint]
 
 default['rbenv']['version'] = '2.4.2'
-default['rbenv']['gem'] = %w[bundler rubocop rubocop-rspec rb-readline pry rails scss_lint]
+default['rbenv']['gem'] = %w[
+  bundler
+  pry
+  rails
+  rb-readline
+  rubocop
+  rubocop-rspec
+  scss_lint
+]
 
 default['ndenv']['version'] = 'v8.7.0'
-default['ndenv']['npm'] = %w[bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import]
+default['ndenv']['npm'] = %w[
+  bower
+  coffee-script
+  david
+  eslint
+  eslint-config-airbnb-base
+  eslint-plugin-import
+  grunt-cli
+  jshint
+]
 
 default['golang']['version'] = '1.9.1'
-default['golang']['packages'] = %w[github.com/motemen/gore github.com/nsf/gocode github.com/k0kubun/pp github.com/golang/lint/golint golang.org/x/tools/cmd/...]
+default['golang']['packages'] = %w[
+  github.com/golang/lint/golint
+  github.com/k0kubun/pp
+  github.com/motemen/gore
+  github.com/nsf/gocode
+  golang.org/x/tools/cmd/...
+]
 
 default['docker']['compose']['version'] = '1.16.1'
