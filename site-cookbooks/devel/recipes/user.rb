@@ -56,18 +56,25 @@ data_bag('users').each do |user_id|
     home home_dir
   end
 
+  pyenv do
+    user user_id
+    home home_dir
+    version node['pyenv']['version']
+    pkgs node['pyenv']['pip']
+  end
+
   rbenv do
     user user_id
     home home_dir
     version node['rbenv']['version']
-    pkgs node['rbenv']['gems']
+    pkgs node['rbenv']['gem']
   end
 
   ndenv do
     user user_id
     home home_dir
     version node['ndenv']['version']
-    pkgs node['ndenv']['npms']
+    pkgs node['ndenv']['npm']
   end
 
   golang_init do

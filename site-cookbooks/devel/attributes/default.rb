@@ -1,21 +1,30 @@
 default['apt']['packages'] = %w[
-  libffi-dev
-  zlib1g-dev
-  libssl-dev
-  ncurses-term
-  exuberant-ctags
-  language-pack-ja
-  libpq-dev
-  postgresql
-  libmysqld-dev
-  libsqlite3-dev
-  libreadline-dev
-  git
-  tmux
-  curl
-  tree
+  build-essential
   clisp
+  curl
+  exuberant-ctags
+  git
   jq
+  language-pack-ja
+  libbz2-dev
+  libffi-dev
+  libmysqld-dev
+  libncurses5-dev
+  libncursesw5-dev
+  libpq-dev
+  libreadline-dev
+  libsqlite3-dev
+  libssl-dev
+  llvm
+  make
+  ncurses-term
+  postgresql
+  tk-dev
+  tmux
+  tree
+  wget
+  xz-utils
+  zlib1g-dev
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
@@ -48,11 +57,14 @@ default['git']['user']['email'] = 'proxy0721@gmail.com'
 default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
 
+default['pyenv']['version'] = '3.6.4'
+default['pyenv']['pip'] = %w[]
+
 default['rbenv']['version'] = '2.4.2'
-default['rbenv']['gems'] = %w[bundler rubocop rubocop-rspec rb-readline pry rails scss_lint]
+default['rbenv']['gem'] = %w[bundler rubocop rubocop-rspec rb-readline pry rails scss_lint]
 
 default['ndenv']['version'] = 'v8.7.0'
-default['ndenv']['npms'] = %w[bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import]
+default['ndenv']['npm'] = %w[bower coffee-script grunt-cli jshint david eslint-config-airbnb-base eslint eslint-plugin-import]
 
 default['golang']['version'] = '1.9.1'
 default['golang']['packages'] = %w[github.com/motemen/gore github.com/nsf/gocode github.com/k0kubun/pp github.com/golang/lint/golint golang.org/x/tools/cmd/...]
