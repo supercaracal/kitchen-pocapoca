@@ -12,6 +12,14 @@ node['apt']['packages'].each do |pkg|
   end
 end
 
+directory "/etc/postgresql/#{node['global']['postgresql']['version']}/main" do
+  owner 'postgres'
+  group 'postgres'
+  mode '0755'
+  action :create
+  recursive true
+end
+
 template "/etc/postgresql/#{node['global']['postgresql']['version']}/main/postgresql.conf" do
   source 'etc/postgresql/postgresql.conf.erb'
   variables version: node['global']['postgresql']['version']
