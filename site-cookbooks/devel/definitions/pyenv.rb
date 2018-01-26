@@ -35,12 +35,18 @@ define :pyenv, user: 'root', home: '/tmp', version: '3.6.4', pkgs: [] do
     command "#{params[:home]}/.pyenv/bin/pyenv global #{params[:version]}"
   end
 
+  directory "#{params[:home]}/.config" do
+    owner params[:user]
+    group params[:user]
+    mode '0755'
+    action :create
+  end
+
   directory "#{params[:home]}/.config/pip" do
     owner params[:user]
     group params[:user]
     mode '0755'
     action :create
-    recursive true
   end
 
   cookbook_file "#{params[:home]}/.config/pip/pip.conf" do
