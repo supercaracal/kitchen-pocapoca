@@ -81,6 +81,7 @@ default['rbenv']['gem'] = %w[
   rubocop
   rubocop-rspec
   scss_lint
+  slim_lint
 ]
 
 default['ndenv']['version'] = 'v8.7.0'
