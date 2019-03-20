@@ -69,10 +69,10 @@ default['git']['user']['email'] = 'proxy0721@gmail.com'
 default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
 
-default['pyenv']['version'] = '3.6.4'
+default['pyenv']['version'] = '3.7.2'
 default['pyenv']['pip'] = %w[cpplint]
 
-default['rbenv']['version'] = '2.4.2'
+default['rbenv']['version'] = '2.6.2'
 default['rbenv']['gem'] = %w[
   bundler
   pry
@@ -84,7 +84,7 @@ default['rbenv']['gem'] = %w[
   slim_lint
 ]
 
-default['ndenv']['version'] = 'v8.7.0'
+default['ndenv']['version'] = 'v10.15.3'
 default['ndenv']['npm'] = %w[
   bower
   coffee-script
@@ -96,7 +96,7 @@ default['ndenv']['npm'] = %w[
   jshint
 ]
 
-default['golang']['version'] = '1.9.1'
+default['golang']['version'] = '1.12.1'
 default['golang']['packages'] = %w[
   github.com/golang/lint/golint
   github.com/k0kubun/pp
@@ -105,4 +105,4 @@ default['golang']['packages'] = %w[
   golang.org/x/tools/cmd/...
 ]
 
-default['docker']['compose']['version'] = '1.16.1'
+default['docker']['compose']['version'] = '1.23.2'
