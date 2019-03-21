@@ -1,10 +1,8 @@
 default['apt']['packages'] = %w[
   build-essential
-  clisp
   curl
   exuberant-ctags
   git
-  jq
   language-pack-ja
   libbz2-dev
   libffi-dev
@@ -15,13 +13,10 @@ default['apt']['packages'] = %w[
   libreadline-dev
   libsqlite3-dev
   libssl-dev
-  llvm
   make
   ncurses-term
   postgresql
-  tk-dev
   tmux
-  tree
   wget
   xz-utils
   zlib1g-dev
@@ -98,7 +93,7 @@ default['ndenv']['npm'] = %w[
 
 default['golang']['version'] = '1.12.1'
 default['golang']['packages'] = %w[
-  github.com/golang/lint/golint
+  golang.org/x/lint/golint
   github.com/k0kubun/pp
   github.com/motemen/gore
   github.com/nsf/gocode
