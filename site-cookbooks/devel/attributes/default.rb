@@ -22,6 +22,7 @@ default['apt']['packages'] = %w[
   zlib1g-dev
   clang
   llvm
+  libc++-dev
   openjdk-11-jdk
 ]
 
