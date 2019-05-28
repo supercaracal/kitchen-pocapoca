@@ -14,6 +14,7 @@ Vagrant.configure('2') do |config|
   config.omnibus.chef_version = 'latest' if Vagrant.has_plugin?('vagrant-omnibus')
 
   config.vm.provision :chef_solo do |chef|
+    chef.arguments = '--chef-license accept'
     chef.data_bags_path = './data_bags'
     chef.environments_path = './environments'
     chef.roles_path = './roles'
