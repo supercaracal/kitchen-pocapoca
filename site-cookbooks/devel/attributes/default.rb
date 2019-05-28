@@ -20,6 +20,9 @@ default['apt']['packages'] = %w[
   wget
   xz-utils
   zlib1g-dev
+  clang
+  llvm
+  openjdk-11-jdk
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
