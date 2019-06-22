@@ -24,6 +24,7 @@ default['apt']['packages'] = %w[
   llvm
   libc++-dev
   openjdk-11-jdk
+  gdb
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
