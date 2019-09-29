@@ -25,6 +25,8 @@ default['apt']['packages'] = %w[
   libc++-dev
   openjdk-11-jdk
   gdb
+  jq
+  tree
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
@@ -72,12 +74,10 @@ default['ctags']['file'] = '.tags'
 default['pyenv']['version'] = '3.7.2'
 default['pyenv']['pip'] = %w[cpplint]
 
-default['rbenv']['version'] = '2.6.2'
+default['rbenv']['version'] = '2.6.4'
 default['rbenv']['gem'] = %w[
   bundler
-  pry
   rails
-  rb-readline
   rubocop
   rubocop-rspec
   scss_lint
@@ -94,6 +94,7 @@ default['ndenv']['npm'] = %w[
   eslint-plugin-import
   grunt-cli
   jshint
+  yarn
 ]
 
 default['golang']['version'] = '1.12.1'
