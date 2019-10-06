@@ -132,3 +132,18 @@ user@guest$ vim
 user@host$ bundle install --path=.bundle
 user@host$ bundle exec rake spec:savanna
 ```
+
+# Disk Expansion (10GB -> 20GB)
+```
+# C:\Users\{USER}\VirtualBox VMs\kitchen-pocapoca_default_1553137795531_95021
+# C:\Program Files\Oracle\VirtualBox\VBoxManage.exe
+
+$ VBoxManage clonemedium disk ubuntu-bionic-18.04-cloudimg.vmdk ubuntu-bionic-18.04-cloudimg.vdi --format VDI
+$ VBoxManage modifyhd ubuntu-bionic-18.04-cloudimg.vdi --resize 20480
+$ VBoxManage clonemedium disk ubuntu-bionic-18.04-cloudimg.vdi ubuntu-bionic-18.04-cloudimg-expanded.vmdk --format VMDK
+
+# Modify SCSI(0,0) by using Oracle VirtualBox GUI
+
+$ VBoxManage closemedium ubuntu-bionic-18.04-cloudimg.vdi
+$ VBoxManage closemedium ubuntu-bionic-18.04-cloudimg.vmdk
+```
