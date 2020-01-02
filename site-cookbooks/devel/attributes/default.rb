@@ -71,39 +71,16 @@ default['git']['user']['email'] = 'proxy0721@gmail.com'
 default['ctags']['directories'] = %W[~/#{default['user']['workplace']}]
 default['ctags']['file'] = '.tags'
 
-default['pyenv']['version'] = '3.7.4'
+default['pyenv']['version'] = '3.8.1'
 default['pyenv']['pip'] = %w[cpplint]
 
-default['rbenv']['version'] = '2.6.5'
-default['rbenv']['gem'] = %w[
-  bundler
-  rails
-  rubocop
-  rubocop-rspec
-  scss_lint
-  slim_lint
-]
+default['rbenv']['version'] = '2.7.0'
+default['rbenv']['gem'] = %w[]
 
-default['ndenv']['version'] = 'v10.16.3'
-default['ndenv']['npm'] = %w[
-  bower
-  coffee-script
-  david
-  eslint
-  eslint-config-airbnb-base
-  eslint-plugin-import
-  grunt-cli
-  jshint
-  yarn
-]
+default['ndenv']['version'] = 'v13.5.0'
+default['ndenv']['npm'] = %w[]
 
-default['golang']['version'] = '1.13.1'
-default['golang']['packages'] = %w[
-  golang.org/x/lint/golint
-  github.com/k0kubun/pp
-  github.com/motemen/gore
-  github.com/nsf/gocode
-  golang.org/x/tools/cmd/...
-]
+default['golang']['version'] = '1.13.5'
+default['golang']['packages'] = %w[golang.org/x/lint/golint]
 
-default['docker']['compose']['version'] = '1.24.1'
+default['docker']['compose']['version'] = '1.25.0'
