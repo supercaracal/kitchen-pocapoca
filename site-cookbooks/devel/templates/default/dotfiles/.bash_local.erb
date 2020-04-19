@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export HISTSIZE=10000
+export EDITOR=$(which vim)
 termemu="gnome-256color"
 
 if [[ -n $(find /usr/share/terminfo -name "$termemu") ]]; then
