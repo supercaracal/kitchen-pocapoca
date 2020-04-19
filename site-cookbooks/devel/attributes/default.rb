@@ -27,6 +27,12 @@ default['apt']['packages'] = %w[
   gdb
   jq
   tree
+  autoconf
+  automake
+  pkg-config
+  libevent-dev
+  flex
+  bison
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
@@ -47,12 +53,14 @@ default['global']['postgresql']['version'] = '9.6'
 default['user']['shell'] = '/bin/bash'
 default['user']['commands'] = %w[gitvimdiff create_ctags]
 default['user']['bashrc']['sources'] = %w[
+  .bash_local
   .bash_golang
   .bash_ndenv
   .bash_pyenv
   .bash_rbenv
 ]
 default['user']['dotfiles'] = %w[
+  .bash_local
   .Xresources
   .gemrc
   .gitconfig
@@ -61,9 +69,9 @@ default['user']['dotfiles'] = %w[
   .vimrc
 ]
 default['user']['workplace'] = 'vcs'
-default['user']['dependency-repositories'] = %w[https://github.com/seebi/tmux-colors-solarized.git]
+default['user']['dependency-repositories'] = %w[]
 
-default['term']['color'] = 'xterm-256color'
+default['term']['color'] = 'gnome-256color'
 
 default['git']['user']['name'] = 'Taishi Kasuga'
 default['git']['user']['email'] = 'proxy0721@gmail.com'
