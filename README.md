@@ -102,6 +102,14 @@ set-window-option -g mode-keys vi
 set-window-option -g aggressive-resize
 ```
 
+## .profile
+```
+alias ls='ls --color=auto --show-control-chars'
+alias ll='ls -la --color=auto --show-control-chars'
+alias l='ls -CF --color=auto --show-control-chars'
+export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\] \$ '
+```
+
 ## Pacman
 ```
 user@host$ pacman -S mingw-w64-x86_64-toolchain
