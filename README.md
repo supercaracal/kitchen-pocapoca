@@ -23,7 +23,7 @@ My vm for the windows host.
 * Add `C:/Users /home` to `/etc/fstab`
 
 ## .minttyrc
-```
+```sh
 BoldAsFont=no
 Transparency=medium
 Font=Ricty Diminished
@@ -39,7 +39,7 @@ CursorType=block
 ```
 
 ## .vimrc
-```
+```vim
 syntax enable
 
 colorscheme elflord
@@ -75,7 +75,7 @@ set wildignorecase
 ```
 
 ## .tmux.conf
-```
+```sh
 set -g prefix C-q
 unbind C-b
 
@@ -103,16 +103,19 @@ set-window-option -g aggressive-resize
 ```
 
 ## .profile
-```
+```sh
 alias ls='ls --color=auto --show-control-chars'
 alias ll='ls -la --color=auto --show-control-chars'
 alias l='ls -CF --color=auto --show-control-chars'
 
-export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\] \$ '
+. ~/vcs/git/contrib/completion/git-prompt.sh
+
+export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[35m\]$(__git_ps1)\[\e[0m\]\$ '
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
+    . ~/vcs/git/contrib/completion/git-completion.bash
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
