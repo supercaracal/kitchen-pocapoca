@@ -107,7 +107,16 @@ set-window-option -g aggressive-resize
 alias ls='ls --color=auto --show-control-chars'
 alias ll='ls -la --color=auto --show-control-chars'
 alias l='ls -CF --color=auto --show-control-chars'
+
 export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[35m\]$MSYSTEM\[\e[0m\] \[\e[33m\]\w\[\e[0m\] \$ '
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 ```
 
 ## Pacman
