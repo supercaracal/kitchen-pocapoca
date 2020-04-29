@@ -116,6 +116,7 @@ user@host$ pacman -S mingw-w64-x86_64-toolchain
 user@host$ pacman -S openssh
 user@host$ pacman -S vim
 user@host$ pacman -S tmux
+user@host$ pacman -S bash-completion
 ```
 
 ## Vagrant plugins
