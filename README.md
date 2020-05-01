@@ -110,7 +110,7 @@ alias l='ls -CF --color=auto --show-control-chars'
 
 . ~/vcs/git/contrib/completion/git-prompt.sh
 
-export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]\[\e[35m\]$(__git_ps1)\[\e[0m\]\$ '
+export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h\[\e[0m\]:\[\e[33m\]\w\[\e[0m\]\[\e[35m\]$(__git_ps1)\[\e[0m\]\$ '
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
