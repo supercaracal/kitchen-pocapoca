@@ -15,4 +15,12 @@ define :local_command, user: 'root', home: '/tmp', commands: [] do
       mode '0544'
     end
   end
+
+  bash 'Download git-prompt.sh' do
+    user params[:user]
+    group params[:user]
+    code <<-CODE
+      /usr/bin/curl -s -S https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > #{params[:home]}/bin/git-prompt.sh
+    CODE
+  end
 end
