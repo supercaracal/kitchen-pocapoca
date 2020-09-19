@@ -88,7 +88,7 @@ default['rbenv']['gem'] = %w[]
 default['ndenv']['version'] = 'v13.5.0'
 default['ndenv']['npm'] = %w[]
 
-default['golang']['version'] = '1.13.5'
+default['golang']['version'] = '1.15.2'
 default['golang']['packages'] = %w[golang.org/x/lint/golint]
 
 default['docker']['compose']['version'] = '1.25.0'
