@@ -12,3 +12,15 @@ if [[ -n $(find /usr/share/terminfo -name "$termemu") ]]; then
   export TERM="$termemu"
   export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;35m\]$(__git_ps1)\[\033[00m\]\$ '
 fi
+
+if [[ -d /usr/local/kubebuilder ]]; then
+  export PATH="$PATH:/usr/local/kubebuilder/bin"
+fi
+
+if type kubectl > /dev/null 2>&1; then
+  source <(kubectl completion bash)
+fi
+
+if type kind > /dev/null 2>&1; then
+  source <(kind completion bash)
+fi
