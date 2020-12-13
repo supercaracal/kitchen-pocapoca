@@ -33,6 +33,7 @@ default['apt']['packages'] = %w[
   libevent-dev
   flex
   bison
+  zlib1g-dev
 ]
 
 default['global']['lang'] = 'LANG=ja_JP.UTF-8'
@@ -82,10 +83,10 @@ default['ctags']['file'] = '.tags'
 default['pyenv']['version'] = '3.8.1'
 default['pyenv']['pip'] = %w[cpplint]
 
-default['rbenv']['version'] = '2.7.0'
+default['rbenv']['version'] = '2.7.2'
 default['rbenv']['gem'] = %w[]
 
-default['ndenv']['version'] = 'v13.5.0'
+default['ndenv']['version'] = 'v15.4.0'
 default['ndenv']['npm'] = %w[]
 
 default['golang']['version'] = '1.15.2'
