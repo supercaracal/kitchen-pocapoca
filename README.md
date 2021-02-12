@@ -100,6 +100,7 @@ set -g status-bg black
 
 set-window-option -g mode-keys vi
 set-window-option -g aggressive-resize
+set-window-option -g status-position top
 ```
 
 ## .profile
