@@ -109,16 +109,19 @@ alias ls='ls --color=auto --show-control-chars'
 alias ll='ls -la --color=auto --show-control-chars'
 alias l='ls -CF --color=auto --show-control-chars'
 
-. ~/vcs/git/contrib/completion/git-prompt.sh
-
-export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h\[\e[0m\]:\[\e[33m\]\w\[\e[0m\]\[\e[35m\]$(__git_ps1)\[\e[0m\]\$ '
-
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
-    . ~/vcs/git/contrib/completion/git-completion.bash
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  fi
+
+  if [ -d "$HOME/vcs/git" ]; then
+    . ~/vcs/git/contrib/completion/git-prompt.sh
+    . ~/vcs/git/contrib/completion/git-completion.bash
+    export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h\[\e[0m\]:\[\e[33m\]\w\[\e[0m\]\[\e[35m\]$(__git_ps1)\[\e[0m\]\$ '
+  else
+    export PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h\[\e[0m\]:\[\e[33m\]\w\[\e[0m\]\$ '
   fi
 fi
 ```
