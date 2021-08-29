@@ -139,6 +139,7 @@ user@host$ pacman -S bash-completion
 ```
 user@host$ vagrant plugin install vagrant-omnibus
 user@host$ vagrant plugin install vagrant-share
+user@host$ vagrant plugin install vagrant-vbguest
 ```
 
 ## Start-up VM
