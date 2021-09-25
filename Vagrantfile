@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+
 Vagrant.configure('2') do |config|
   config.vm.box = 'ubuntu/bionic64'
   config.vm.hostname = 'savanna'
@@ -9,7 +10,8 @@ Vagrant.configure('2') do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
   config.vm.provider :virtualbox do |vb|
-    vb.memory = '2048'
+    vb.memory = '2688'
+    vb.cpus = 1
   end
 
   config.omnibus.chef_version = 'latest' if Vagrant.has_plugin?('vagrant-omnibus')
